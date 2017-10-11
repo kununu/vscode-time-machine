@@ -25,6 +25,7 @@
         "test": "node ./node_modules/vscode/bin/test"
     },
     "dependencies": {
+        "git-log-utils": "0.2.3",
         "parse-git": "1.1.2",
         "moment": "2.19.0"
     },
