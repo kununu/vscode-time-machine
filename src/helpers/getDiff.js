@@ -2,7 +2,6 @@ const vscode = require('vscode');
 const {spawn} = require('child_process');
 
 function gitRunner(gitCmdArray) {
-  
   return new Promise((resolve, reject) => {  
     let output = [];
     let commandBase = ['-C', vscode.workspace.rootPath];
@@ -40,23 +39,5 @@ function getContents(file, hashLeft, hashRight) {
     });
   })
 }
-
-// return vscode.commands.executeCommand('vscode.diff', doc.uri, doc2.uri, 'some diff').then((success) => {
-// }, function(err) {
-//   console.log(err);
-//   vscode.window.showInformationMessage(err.message);    
-// });
-
-// function getDocuments(contentLeft, contentRight) {
-//   const diffBuffLeft = vscode.workspace.openTextDocument({
-//     language: 'javascript', 
-//     content: 'i will bang your mom'
-//   });
-
-//   const diffBuffRight = vscode.workspace.openTextDocument({
-//     language: 'javascript', 
-//     content: 'i will bang your mom'
-//   });
-// }
 
 exports.getContents = getContents;
