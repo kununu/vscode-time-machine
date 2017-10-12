@@ -32,6 +32,7 @@ class TimeChartWindowProvider {
       </script>
     </head>
     <body>
+      <h3>Time Machine for ${this.file}</h3>
       <canvas id="timeMachineChart" width="800" height="350"></canvas>
     </body>
     `
