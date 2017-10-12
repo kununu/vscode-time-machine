@@ -17,7 +17,7 @@ class History {
         data[foundIndex].data[0].y +=  (item.linesAdded + item.linesDeleted);
         data[foundIndex].count++;
         data[foundIndex].label = `${parseInt(data[foundIndex].label.match(/\d+/)[0]) + 1} commits`
-
+        data[foundIndex].data[0].messages.push(item.message)
       } else {
         data.push({
           label: '1 commit',
@@ -25,6 +25,7 @@ class History {
           file: file,
           backgroundColor: "rgba(255,255,255,0.5)",
           data:[{
+            messages: [item.message],
             id: arr[idx+1] ? arr[idx+1].id : 'master',
             next: item.id,
             x: itemDate,

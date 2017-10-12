@@ -11,6 +11,15 @@ function createChart(data, file) {
       legend: {
         display: false
       },
+      tooltips: {
+        callbacks: {
+          label: function(tooltipItem, data) {
+            let label = data.datasets[tooltipItem.datasetIndex].label;
+            let value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+            return [label].concat(value.messages);
+          }
+        }
+      },
       'onClick': function (evt, item) {
         window.parent.postMessage({
           command: "did-click-link",
