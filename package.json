@@ -13,11 +13,11 @@
     "activationEvents": [
         "onCommand:extension.vscodeTimeMachine"
     ],
-    "main": "./extension",
+    "main": "./src/extension",
     "contributes": {
         "commands": [{
             "command": "extension.vscodeTimeMachine",
-            "title": "Flux Compensator!"
+            "title": "Time Machine"
         }]
     },
     "scripts": {
@@ -26,7 +26,6 @@
     },
     "dependencies": {
         "git-log-utils": "0.2.3",
-        "parse-git": "1.1.2",
         "moment": "2.19.0"
     },
     "devDependencies": {

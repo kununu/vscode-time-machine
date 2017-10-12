@@ -14,7 +14,7 @@ function createChart(data, file) {
       'onClick': function (evt, item) {
         window.parent.postMessage({
           command: "did-click-link",
-          data: vscodeCmd('extension.didClick', item)
+          data: vscodeCmd('extension.vscodeTimeMachineSelect', item)
         }, "file://");
       },
       title: {

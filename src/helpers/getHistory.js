@@ -1,8 +1,3 @@
-const vscode = require('vscode');
-const {spawn} = require('child_process');
-const ParseGit = require('parse-git');
-const {OUTPUT_CHANNEL_NAME} = require('../constants');
-const path = require('path');
 const moment = require('moment');
 const GitLogUtils = require('git-log-utils');
 

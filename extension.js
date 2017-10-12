@@ -6,7 +6,6 @@ const path = require('path');
 function activate(context) {
   class GitWindowContentProvider {
     constructor() {
-      console.log(vscode.window.activeTextEditor.document.uri);
       this._onDidChange = new vscode.EventEmitter();
       this.file = vscode.window.activeTextEditor.document.uri.fsPath;
     }
