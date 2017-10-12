@@ -15,10 +15,12 @@
     ],
     "main": "./src/extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.vscodeTimeMachine",
-            "title": "Time Machine"
-        }]
+        "commands": [
+            {
+                "command": "extension.vscodeTimeMachine",
+                "title": "Flux Compensator!"
+            }
+        ]
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
