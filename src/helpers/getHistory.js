@@ -20,7 +20,7 @@ class History {
           file: file,
           backgroundColor: "rgba(255,255,255,0.5)",
           data:[{
-            id: arr[idx+1] ? arr[idx+1].id : 0,
+            id: arr[idx+1] ? arr[idx+1].id : 'master',
             next: item.id,
             x: itemDate,
             y: (item.linesAdded + item.linesDeleted),
