@@ -16,9 +16,11 @@ class History {
         data[foundIndex].data[0].id = arr[idx+1] ? arr[idx+1].id : 'master';
         data[foundIndex].data[0].y +=  (item.linesAdded + item.linesDeleted);
         data[foundIndex].count++;
+        data[foundIndex].label = `${parseInt(data[foundIndex].label.match(/\d+/)[0]) + 1} commits`
+
       } else {
         data.push({
-          label: this.count,
+          label: '1 commit',
           hook: itemDate,
           file: file,
           backgroundColor: "rgba(255,255,255,0.5)",
@@ -32,7 +34,6 @@ class History {
         });
       }
     });
-    console.log('data => ', data);
     return data;
   }
 }
