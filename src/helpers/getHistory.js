@@ -13,7 +13,7 @@ class History {
       let foundIndex = data.findIndex((i) => i.hook === itemDate);
       if (foundIndex > -1) {
         data[foundIndex].data[0].r += 3;
-        data[foundIndex].data[0].id = arr[idx+1] ? arr[idx+1].id : 'master';
+        data[foundIndex].data[0].next = item.id;
         data[foundIndex].data[0].y +=  (item.linesAdded + item.linesDeleted);
         data[foundIndex].count++;
         data[foundIndex].label = `${parseInt(data[foundIndex].label.match(/\d+/)[0]) + 1} commits`
@@ -26,7 +26,7 @@ class History {
           backgroundColor: "rgba(255,255,255,0.5)",
           data:[{
             messages: [item.message],
-            id: arr[idx+1] ? arr[idx+1].id : 'master',
+            id: arr[idx+1] ? arr[idx+1].id : 0,
             next: item.id,
             x: itemDate,
             y: (item.linesAdded + item.linesDeleted),
