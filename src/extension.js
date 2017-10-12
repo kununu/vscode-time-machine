@@ -13,6 +13,7 @@ const {
 } = require ('./constants');
 
 const activate = context => {
+  // check if file
   
   let timeChartUri = vscode.Uri.parse(TIMECHART_URI);
 
@@ -23,10 +24,9 @@ const activate = context => {
     return vscode.commands.executeCommand(
       'vscode.previewHtml', 
       timeChartUri, 
-      vscode.ViewColumn.Two, 
+      vscode.ViewColumn.Active, 
       TIMECHART_TITLE
     ).then(() => {
-      // ???
     },(execErr) => {
       vscode.window.showInformationMessage(execErr.message);
     });
@@ -52,10 +52,10 @@ const activate = context => {
         'vscode.diff', 
         documents.left.uri, 
         documents.right.uri, 
-        TIMECHART_DIFF_TITLE
+        TIMECHART_DIFF_TITLE,
+        {viewColumn: vscode.ViewColumn.Active}
       ).then(() => {
-        // ???
-      }, function(execErr) {
+      }, (execErr) => {
         vscode.window.showInformationMessage(execErr.message);    
       });  
     })
