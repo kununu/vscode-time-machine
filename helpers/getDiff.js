@@ -11,12 +11,7 @@ function gitRunner(gitCmdArray) {
     ps.stdout.on('data', (data) => {
       output.push(data);
     });
-    
-    // ps.stderr.on('err', (data) => {
-    
-    // });
-    
-    // reject if fail
+
     ps.on('close', (code) => {
       resolve(output.join('/n'));
     });
@@ -28,11 +23,11 @@ function getContents(file, hashLeft, hashRight) {
     gitRunner(['show', `${hashLeft}:${file}`]).then(contentLeft => {
       gitRunner(['show', `${hashRight}:${file}`]).then(contentRight => {
         vscode.workspace.openTextDocument({
-          language: 'javascript', 
+          language: 'javascript',
           content: contentLeft
         }).then(left => {
           vscode.workspace.openTextDocument({
-            language: 'javascript', 
+            language: 'javascript',
             content: contentRight
           }).then(right => {
             resolve({

@@ -1,4 +1,4 @@
-function createChart(data) {
+function createChart(data, file) {
   var canvas = document.getElementById("timeMachineChart");
   var ctx = canvas.getContext('2d');
   
@@ -10,6 +10,12 @@ function createChart(data) {
     options: {
       legend: {
         display: false
+      },
+      'onClick': function (evt, item) {
+        window.parent.postMessage({
+          command: "did-click-link",
+          data: vscodeCmd('extension.didClick', item)
+        }, "file://");
       },
       title: {
         display: false
@@ -28,24 +34,6 @@ function createChart(data) {
   });
 
   function vscodeCmd(name, args) {
-    return 'command:' + name + '?' + encodeURIComponent(JSON.stringify(args));
+    return 'command:' + name + '?' + encodeURIComponent(CircularJSON.stringify(args));
   } 
-
-  function getData(event) {
-    var points = timeMachineChart.getElementsAtEvent(event);
-    if (points[0]) {
-      var f = points[0]['_chart'].config.data.datasets[0].data[0];
-      console.log(f)
-      return f;
-    }
-  }
-  $('#timeMachineChart').on('click', function(evt) {
-    var data = getData(evt);
-
-    window.parent.postMessage({
-      command: "did-click-link",
-      data: vscodeCmd('extension.didClick', data)
-    }, "file://");
-  });
-
 }
