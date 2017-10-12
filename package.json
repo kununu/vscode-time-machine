@@ -18,7 +18,7 @@
         "commands": [
             {
                 "command": "extension.vscodeTimeMachine",
-                "title": "Flux Compensator!"
+                "title": "Time Machine"
             }
         ]
     },
