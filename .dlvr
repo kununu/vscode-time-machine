@@ -1,5 +1,6 @@
 
 {
+  "preRun": "npm run build",
   "dotenv": ".env",
   "logfilter": ".*#",
   "remote": "origin",
@@ -8,7 +9,13 @@
     "provider": "github",
     "repo": "kununu/vscode-time-machine",
     "release": {
-      "draft": true
+      "draft": true,
+       "assets": [
+        {
+          "file": "./vscode-time-machine.vsix",
+          "name": "vscode-time-machine.vsix"
+        }
+      ]
     }
   }
 }
