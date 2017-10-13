@@ -7,7 +7,6 @@ class TimeChartWindowProvider {
     this._onDidChange = new vscode.EventEmitter();
     this.file = vscode.window.activeTextEditor.document.uri.fsPath;
     this.language = vscode.window.activeTextEditor.document.languageId;
-    console.log(this.language);
   }
   
   getAsset(assetPath) {
@@ -27,7 +26,6 @@ class TimeChartWindowProvider {
       <script src="https://cdn.jsdelivr.net/npm/circular-json@0.3.3/build/circular-json.js"></script>
       <script src="${this.getAsset('../../src/chart/chart.js')}"></script>
       <script>
-      console.log('${this.getAsset('src/chart/chart.js')}');
         $(document).ready(function() {
           createChart(${JSON.stringify(data)});
         });
