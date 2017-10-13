@@ -1,0 +1,14 @@
+
+{
+  "dotenv": ".env",
+  "logfilter": ".*#",
+  "remote": "origin",
+  "npmpublish": false,
+  "githost": {
+    "provider": "github",
+    "repo": "kununu/vscode-time-machine",
+    "release": {
+      "draft": true
+    }
+  }
+}
