@@ -1,45 +1,45 @@
 {
-    "name": "vscode-time-machine",
-    "displayName": "vscode-time-machine",
-    "description": "",
-    "version": "0.0.0",
-    "publisher": "kununu",
-    "engines": {
-        "vscode": "^1.17.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "onCommand:extension.vscodeTimeMachine"
-    ],
-    "main": "./src/extension",
-    "contributes": {
-        "commands": [
-            {
-                "command": "extension.vscodeTimeMachine",
-                "title": "Time Machine"
-            }
-        ]
-    },
-    "scripts": {
-        "release:status": "dlvr status",
-        "release": "dlvr release auto",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
-    },
-    "dependencies": {
-        "git-log-utils": "0.2.3",
-        "moment": "2.19.0"
-    },
-    "devDependencies": {
-        "dlvr": "3.0.3",
-        "vsce": "1.31.1",
-        "typescript": "^2.5.2",
-        "vscode": "^1.1.5",
-        "mocha": "^3.5.0",
-        "eslint": "^4.6.1",
-        "@types/node": "^7.0.0",
-        "@types/mocha": "^2.2.42"
-    }
+  "name": "vscode-time-machine",
+  "displayName": "vscode-time-machine",
+  "description": "",
+  "version": "0.0.1",
+  "publisher": "kununu",
+  "engines": {
+    "vscode": "^1.17.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.vscodeTimeMachine"
+  ],
+  "main": "./src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.vscodeTimeMachine",
+        "title": "Time Machine"
+      }
+    ]
+  },
+  "scripts": {
+    "release:status": "dlvr status",
+    "release": "dlvr release auto",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "dependencies": {
+    "git-log-utils": "0.2.3",
+    "moment": "2.19.0"
+  },
+  "devDependencies": {
+    "dlvr": "3.0.3",
+    "vsce": "1.31.1",
+    "typescript": "^2.5.2",
+    "vscode": "^1.1.5",
+    "mocha": "^3.5.0",
+    "eslint": "^4.6.1",
+    "@types/node": "^7.0.0",
+    "@types/mocha": "^2.2.42"
+  }
 }
