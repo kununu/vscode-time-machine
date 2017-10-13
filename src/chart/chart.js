@@ -1,4 +1,4 @@
-function createChart(data, file) {
+function createChart(data) {
   var canvas = document.getElementById("timeMachineChart");
   var ctx = canvas.getContext('2d');
   

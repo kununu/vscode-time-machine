@@ -17,16 +17,16 @@ function gitRunner(gitCmdArray) {
   })
 }
 
-function getContents(file, hashLeft, hashRight) {
+function getContents(file, language, hashLeft, hashRight) {
   return new Promise((resolve, reject) => {
     gitRunner(['show', `${hashLeft}:${file}`]).then(contentLeft => {
       gitRunner(['show', `${hashRight}:${file}`]).then(contentRight => {
         vscode.workspace.openTextDocument({
-          language: 'javascript',
+          language: language,
           content: contentLeft
         }).then(left => {
           vscode.workspace.openTextDocument({
-            language: 'javascript',
+            language: language,
             content: contentRight
           }).then(right => {
             resolve({

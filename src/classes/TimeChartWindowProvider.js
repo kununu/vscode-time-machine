@@ -6,6 +6,8 @@ class TimeChartWindowProvider {
   constructor() {
     this._onDidChange = new vscode.EventEmitter();
     this.file = vscode.window.activeTextEditor.document.uri.fsPath;
+    this.language = vscode.window.activeTextEditor.document.languageId;
+    console.log(this.language);
   }
   
   getAsset(assetPath) {
@@ -14,7 +16,7 @@ class TimeChartWindowProvider {
   
   provideTextDocumentContent(uri) {
     const history = getFileHistory(this.file);
-    return this.generateChartView(history.getChartDataset(this.file));
+    return this.generateChartView(history.getChartDataset(this.file, this.language));
   }
   
   generateChartView(data) {
@@ -27,7 +29,7 @@ class TimeChartWindowProvider {
       <script>
       console.log('${this.getAsset('src/chart/chart.js')}');
         $(document).ready(function() {
-          createChart(${JSON.stringify(data)}, '${this.file}');
+          createChart(${JSON.stringify(data)});
         });
       </script>
     </head>

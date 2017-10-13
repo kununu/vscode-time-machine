@@ -6,7 +6,7 @@ class History {
     this.log = log;
   }
   
-  getChartDataset(file) {
+  getChartDataset(file, language) {
     let data = [];
     this.log.map((item, idx, arr) => {
       let itemDate = moment.unix(item.authorDate).format('MM-DD-YYYY');
@@ -23,6 +23,7 @@ class History {
           label: '1 commit',
           hook: itemDate,
           file: file,
+          language: language,
           backgroundColor: "rgba(255,255,255,0.5)",
           data:[{
             messages: [item.message],

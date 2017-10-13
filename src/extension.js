@@ -18,7 +18,7 @@ const activate = context => {
   let timeChartUri = vscode.Uri.parse(TIMECHART_URI);
 
   let disposable = vscode.commands.registerCommand(TIMECHART_OPEN_COMMAND, () => {
-    let provider = new TimeChartWindowProvider();
+  let provider = new TimeChartWindowProvider();
     
     vscode.workspace.registerTextDocumentContentProvider(PROJECT_IDENTIFIER, provider);
     return vscode.commands.executeCommand(
@@ -35,7 +35,7 @@ const activate = context => {
     vscode.window.showInformationMessage(disposeErr.message);
   });
   
-  vscode.commands.registerCommand(TIMECHART_SELECT_COMMAND, function (data) {
+  vscode.commands.registerCommand(TIMECHART_SELECT_COMMAND, (data) => {
     const item = data._chart.config.data.datasets[data._datasetIndex];
     
     const relPath = path.relative(
@@ -45,6 +45,7 @@ const activate = context => {
 
     getContents(
       relPath,
+      item.language,
       item.data[0].id,
       item.data[0].next
     ).then(documents => {
